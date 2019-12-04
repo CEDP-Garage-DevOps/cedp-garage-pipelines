@@ -32,6 +32,14 @@
 			"type": "string",
 			"disabled": false
 		},
+		"cluster": {
+			"type": "string",
+			"disabled": false
+		},
+		"domain": {
+			"type": "string",
+			"disabled": false
+		},
 		"func-user": {
 			"type": "string",
 			"disabled": false
@@ -46,27 +54,18 @@
 			"disabled": false,
 			"pattern": "\\S"
 		},
-		"sonar-devop-token": {
-			"type": "string",
-			"disabled": false,
-			"pattern": "\\S"
-		},
-		"cluster": {
-			"type": "string",
-			"disabled": false
-		},
-		"domain": {
-			"type": "string",
-			"disabled": false
-		},
 		"externalIP": {
 			"type": "string",
 			"disabled": false
 		},
-
 		"dockerImageName": {
 			"type": "string",
 			"disabled": false
+		},
+		"sonar-devop-token": {
+			"type": "string",
+			"disabled": false,
+			"pattern": "\\S"
 		},
 		"INPUT_GIT_BRANCH": {
 			"type": "string",

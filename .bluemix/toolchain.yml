@@ -51,12 +51,7 @@ services:
           SONAR_DEVOP_TOKEN: '{{form.pipeline.parameters.sonar-devop-token}}'
         execute: false
   messaging:
-    service_id: slack
-  dra:
-    service_id: draservicebroker
-    name: is_developer_insights_enabled
-    type: boolean
-    $ref: dra.yml  
+    service_id: slack 
 form:
   pipeline:
     parameters:
