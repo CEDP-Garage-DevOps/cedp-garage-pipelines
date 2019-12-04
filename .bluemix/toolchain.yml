@@ -1,0 +1,66 @@
+version: '2'
+messages:
+  $i18n: locales.yml
+template:
+  name:
+    $ref: "#/messages/template.name"
+  description:
+    $ref: "#/messages/template.description"
+  required:
+    - cedp-tc-build
+    - cedp-tc-repo
+toolchain:
+  name: 'cedp-tc-CD{{timestamp}}'
+  template:
+    getting_started:
+      $ref: "#/messages/template.gettingStarted" 
+services:
+  cedp-tc-repo:
+    service_id: github_integrated
+    parameters:
+      repo_name: ''
+      repo_url: ''
+      type: link
+      private_repo: true
+      has_issues: false
+      enable_traceability: false
+  cedp-tc-build:
+    service_id: pipeline
+    parameters:
+      services:
+        - cedp-tc-repo
+      name: '{{toolchain.name}}'
+      ui-pipeline: true
+      configuration:
+        content:
+          $text: pipeline.yml
+        env:
+          GIT_REPO: cedp-tc-repo
+          REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
+          API_KEY: '{{form.pipeline.parameters.api-key}}'
+          PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
+          PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
+          FUNC_USER: '{{form.pipeline.parameters.func-user}}'
+          FUNC_PASS: '{{form.pipeline.parameters.func-pass}}'
+          CLUSTER: '{{form.pipeline.parameters.cluster}}'
+          DOMAIN: '{{form.pipeline.parameters.domain}}'
+          EXTERNAL_IP: '{{form.pipeline.parameters.externalIP}}'
+          DOCKER_IMAGE_NAME: '{{form.pipeline.parameters.dockerImageName}}'
+          INPUT_GIT_BRANCH: '{{form.pipeline.parameters.INPUT_GIT_BRANCH}}'
+          AF_PSW: '{{form.pipeline.parameters.af-psw}}'
+          SONAR_DEVOP_TOKEN: '{{form.pipeline.parameters.sonar-devop-token}}'
+        execute: false
+  messaging:
+    service_id: slack
+  dra:
+    service_id: draservicebroker
+    name: is_developer_insights_enabled
+    type: boolean
+    $ref: dra.yml  
+form:
+  pipeline:
+    parameters:
+      app-name: '{{services.cedp-tc-repo.parameters.repo_name}}'
+      prod-cluster-namespace: default
+    schema:
+      $ref: deploy.json
