@@ -8,7 +8,7 @@ stages:
     dir_name: null
   triggers:
     - type: git
-      events: '{"push":true,"pull_request":false,"pull_request_closed":false}'
+      events: '{"push":false,"pull_request":true,"pull_request_closed":false}'
   permission:
     execute: TOOLCHAIN_ADMINS
   jobs:
@@ -49,7 +49,7 @@ stages:
       set -e
 
       mv git .git
-      ibm-bifrost build_plan dev diff commit
+      ibm-bifrost build_plan test diff pr
       mv .git git
       
     namespace: 'NULL'
