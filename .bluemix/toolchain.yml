@@ -40,23 +40,19 @@ services:
           API_KEY: '{{form.pipeline.parameters.api-key}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
-          FUNC_USER: '{{form.pipeline.parameters.func-user}}'
-          FUNC_PASS: '{{form.pipeline.parameters.func-pass}}'
+          SIGNIN_ADDRESS: '{{form.pipeline.parameters.linkpassword}}'
+          EMAIL_ADDRESS: '{{form.pipeline.parameters.email-address}}'
+          S_KEY: '{{form.pipeline.parameters.skey}}'
+          M_PASS: '{{form.pipeline.parameters.mpass}}'
+          VAULT: '{{form.pipeline.parameters.vault}}'
           CLUSTER: '{{form.pipeline.parameters.cluster}}'
           DOMAIN: '{{form.pipeline.parameters.domain}}'
           EXTERNAL_IP: '{{form.pipeline.parameters.externalIP}}'
           DOCKER_IMAGE_NAME: '{{form.pipeline.parameters.dockerImageName}}'
           INPUT_GIT_BRANCH: '{{form.pipeline.parameters.INPUT_GIT_BRANCH}}'
-          AF_PSW: '{{form.pipeline.parameters.af-psw}}'
-          SONAR_DEVOP_TOKEN: '{{form.pipeline.parameters.sonar-devop-token}}'
         execute: false
   messaging:
-    service_id: slack
-  dra:
-    service_id: draservicebroker
-    name: is_developer_insights_enabled
-    type: boolean
-    $ref: dra.yml  
+    service_id: slack 
 form:
   pipeline:
     parameters:
