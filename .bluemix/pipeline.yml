@@ -86,8 +86,8 @@ stages:
 - name: 'Sonar Qube'
   inputs:
   - type: job
-    stage: Code
-    job: 'Test & Build'
+    stage: Plan
+    job: 'Build'
     dir_name: null
   triggers:
   - type: stage
@@ -132,15 +132,21 @@ properties:
 - name: DOCKER_PASSWORD
   value: '{{form.pipeline.parameters.api-key}}'
   type: secure 
-- name: FUNC_USER
-  value: '{{form.pipeline.parameters.func-user}}'
+- name: SIGNIN_ADDRESS
+  value: '{{form.pipeline.parameters.linkpassword}}'
   type: text
-- name: FUNC_PASS
-  value: '{{form.pipeline.parameters.func-pass}}'
+- name: EMAIL_ADDRESS
+  value: '{{form.pipeline.parameters.email-address}}'
+  type: text
+- name: S_KEY
+  value: '{{form.pipeline.parameters.skey}}'
   type: secure
-- name: AF_PSW
-  value: '{{form.pipeline.parameters.af-psw}}'
+- name: M_PASS
+  value: '{{form.pipeline.parameters.mpass}}'
   type: secure
+- name: VAULT
+  value: '{{form.pipeline.parameters.vault}}'
+  type: text
 - name: REGISTRY_REGION_ID
   value: '{{form.pipeline.parameters.registry-region}}'
   type: text
@@ -156,6 +162,3 @@ properties:
 - name: INPUT_GIT_BRANCH 
   value: '{{form.pipeline.parameters.INPUT_GIT_BRANCH}}'
   type: text
-- name: SONAR_DEVOP_TOKEN
-  value: '{{form.pipeline.parameters.sonar-devop-token}}'
-  type: secure
