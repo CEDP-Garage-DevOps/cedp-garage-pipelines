@@ -32,25 +32,6 @@
 			"type": "string",
 			"disabled": false
 		},
-		"func-user": {
-			"type": "string",
-			"disabled": false
-		},
-		"func-pass": {
-			"type": "string",
-			"disabled": false,
-			"pattern": "\\S"
-		},
-		"af-psw": {
-			"type": "string",
-			"disabled": false,
-			"pattern": "\\S"
-		},
-		"sonar-devop-token": {
-			"type": "string",
-			"disabled": false,
-			"pattern": "\\S"
-		},
 		"cluster": {
 			"type": "string",
 			"disabled": false
@@ -59,11 +40,32 @@
 			"type": "string",
 			"disabled": false
 		},
+		"linkpassword": {
+			"type": "string",
+			"disabled": false
+		},
+		"email-address": {
+			"type": "string",
+			"disabled": false
+		},
+		"skey": {
+			"type": "string",
+			"disabled": false,
+			"pattern": "\\S"
+		},
+		"mpass": {
+			"type": "string",
+			"disabled": false,
+			"pattern": "\\S"
+		},
+		"vault": {
+			"type": "string",
+			"disabled": false
+		},
 		"externalIP": {
 			"type": "string",
 			"disabled": false
 		},
-
 		"dockerImageName": {
 			"type": "string",
 			"disabled": false
@@ -108,32 +110,6 @@
 				}, {
 					"type": "text",
 					"key": "dockerImageName",
-					"readonly": false
-				}
-			]
-		}, {
-			"type": "table",
-			"columnCount": 3,
-			"widths": ["45%", "10%", "45%"],
-			"items": [{
-					"type": "label",
-					"title": "Function UserName"
-				}, {
-					"type": "label",
-					"title": ""
-				}, {
-					"type": "label",
-					"title": "Function Password"
-				},  {
-					"type": "text",
-					"key": "func-user",
-					"readonly": false
-				}, {
-					"type": "label",
-					"title": ""
-				}, {
-					"type": "password",
-					"key": "func-pass",
 					"readonly": false
 				}
 			]
@@ -193,27 +169,81 @@
 			]
 		}, {
 			"type": "table",
-			"columnCount": 3,
-			"widths": ["45%", "10%", "45%"],
+			"columnCount": 5,
+			"widths": ["32%", "2%", "32%", "2%", "32%"],
 			"items": [{
 					"type": "label",
-					"title": "Sonar DevOps Token"
+					"title": ""
+			}, {
+					"type": "label",
+					"title": ""
 				}, {
 					"type": "label",
 					"title": ""
 				}, {
 					"type": "label",
-					"title": "AF Password"
-				},  {
+					"title": ""
+				}, {
+					"type": "label",
+					"title": ""
+				}, {
+					"type": "label",
+					"title": "1Password Host"
+				}, {
+					"type": "label",
+					"title": ""
+				}, {
+					"type": "label",
+					"title": "1Password User"
+				}, {
+					"type": "label",
+					"title": ""
+				}, {
+					"type": "label",
+					"title": "1Password Vault"
+				}, {
+					"type": "text",
+					"key": "linkpassword",
+					"readonly": false
+				}, {
+					"type": "label",
+					"title": ""
+				}, {
+					"type": "text",
+					"key": "email-address",
+					"readonly": false
+				}, {
+					"type": "label",
+					"title": ""
+				}, {
+					"type": "text",
+					"key": "vault",
+					"readonly": false
+				}, {
+					"type": "label",
+					"title": "1Password Secret key"
+				}, {
+					"type": "label",
+					"title": ""
+				}, {
+					"type": "label",
+					"title": "1Password Master password"
+				}, {
+					"type": "label",
+					"title": ""
+				}, {
+					"type": "label",
+					"title": ""
+				}, {
 					"type": "password",
-					"key": "sonar-devop-token",
+					"key": "skey",
 					"readonly": false
 				}, {
 					"type": "label",
 					"title": ""
 				}, {
 					"type": "password",
-					"key": "af-psw",
+					"key": "mpass",
 					"readonly": false
 				}
 			]
